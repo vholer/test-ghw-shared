@@ -29,4 +29,5 @@ jobs:
 
       - name: Test
         id: test
-        run: echo Test
+        run: |
+          .github/scripts/test.sh
