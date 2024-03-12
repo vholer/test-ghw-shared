@@ -30,4 +30,5 @@ jobs:
       - name: Test
         id: test
         run: |
+          find .
           .github/scripts/test.sh
