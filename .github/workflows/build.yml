@@ -17,6 +17,15 @@ jobs:
     name: Build and Test
     runs-on: ubuntu-22.04
     steps:
+      - name: Checkout reusable workflows repository
+        uses: actions/checkout@v3
+        with:
+          repository: vholer/test-ghw-shared
+          token: ${{ secrets.GIT_ACCESS_TOKEN }}
+          path: /tmp/reusable-repo
+          fetch-depth: 1
+          submodules: false
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -30,5 +39,5 @@ jobs:
       - name: Test
         id: test
         run: |
-          find .
-          .github/scripts/test.sh
+          find /tmp
+          /tmp/reusable-repo/.github/scripts/test.sh
