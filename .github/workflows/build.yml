@@ -21,6 +21,12 @@ jobs:
     name: Build and Test
     runs-on: ubuntu-22.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          submodules: true
+
       - name: Checkout reusable workflows repository
         uses: actions/checkout@v3
         with:
@@ -29,12 +35,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1
           submodules: false
-
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-          submodules: true
 
       - name: Build
         id: build
