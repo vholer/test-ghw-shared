@@ -7,6 +7,10 @@ on:
         description: Name of image
         type: string
         required: true
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
 
 defaults:
   run:
