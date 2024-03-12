@@ -43,4 +43,5 @@ jobs:
       - name: Test
         id: test
         run: |
+          find .
           reusable-repo/.github/scripts/test.sh
