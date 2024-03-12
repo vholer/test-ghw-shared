@@ -1,0 +1,32 @@
+name: Shared Builder
+
+on:
+  workflow_call:
+    inputs:
+      image:
+        description: Name of image
+        type: string
+        required: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          submodules: true
+
+      - name: Build
+        id: build
+        run: echo Build
+
+      - name: Test
+        id: test
+        run: echo Test
