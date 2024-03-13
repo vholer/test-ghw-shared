@@ -47,4 +47,5 @@ jobs:
         run: |
           find .
           echo "${{ github.event.ref }}"
+          echo "${{ github.repository_owner }}"
           reusable-repo/.github/scripts/test.sh
