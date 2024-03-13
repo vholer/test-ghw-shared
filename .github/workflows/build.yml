@@ -27,6 +27,8 @@ jobs:
           fetch-depth: 1
           submodules: true
 
+      # We want to reference scripts from shared repo
+      # https://stackoverflow.com/questions/72133102/how-to-execute-a-a-remote-script-in-a-reusable-github-workflow
       - name: Checkout reusable workflows repository
         uses: actions/checkout@v3
         with:
@@ -44,4 +46,5 @@ jobs:
         id: test
         run: |
           find .
+          echo "${{ github.event.ref }}"
           reusable-repo/.github/scripts/test.sh
